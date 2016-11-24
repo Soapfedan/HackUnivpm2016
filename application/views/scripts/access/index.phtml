@@ -1,0 +1,68 @@
+
+
+<?php if (($this->idPos) == NULL): ?>
+<h2>INDICA LA TUA POSIZIONE</h2>
+<div id="ipos" class="showback">
+    <h3><i class="fa fa-angle-right">DOVE SEI?</i></h3>
+    <?=$this->pForm; ?>
+</div>
+<div class="showback">
+    <h3><i class="fa fa-angle-right">MAPPA</i></h3>
+    Indica la tua posizione sulla mappa:
+    <br>
+    <img id="mappaPosizione" />
+    <map id="mapPosizione" name="mapPosizione"></map>
+</div>
+<?php else: ?>
+<?php  ?>
+ <div id="apos" class="showback">
+ 	<h3><i class="fa fa-angle-right">POSIZIONE ATTUALE</i></h3>
+ 	<div style="float:left; ">	 	
+		    <p>Edificio: <?=$this->data['edificio']; ?><br></p>
+		    <p>Piano: <?=$this->data['piano']; ?><br></p>
+		    <p>Aula: <?=$this->data['aula']; ?><br></p><br>
+		    <h3><i class="fa fa-angle-right"></i>MODIFICA POSIZIONE</h3>
+    		<a href="<?= $this->url(array(
+                          'controller' => 'user',
+                          'action'     => 'modificaposizione',), 
+                          'default',true );?>"> 
+    		<p>Modifica posizione attuale<br></p></a>
+	</div>
+	<div style="float:left display:inline" align="center">  
+	    	<img  src = <?=$this->planimetriaCorretta; ?> width = "30%" height = "30%"/>
+	</div>
+	<div style="clear:both;"></div>	   
+</div> 
+
+<div id="inviaSegn" class="showback">
+    <h3><i class="fa fa-angle-right">INVIA SEGNALAZIONE</i></h3>
+    <?=$this->seForm; ?>
+    <br>
+    Indica la posizione della segnalazione:
+    <img id="mappaSegnalazione" />
+    <map id="mapSegnalazione" name="mapSegnalazione"></map>
+</div>
+
+<div id= "ppos" class="showback" style="display:none">
+    <h3 id="scrittaPer"><i class="fa fa-angle-right">PERICOLO</i></h3>
+    <h4 id="scrittaA">Abbandonare immediatamente l'edificio</h4>
+    <div style="float:left; ">	
+	    <h5 id="pericoloText"></h5>
+	    <h5 id="aulaPText"></h5>
+	</div>
+	<div style="float:left display:inline" align="center">  
+    	<img id="mappaPericolo" width = "40%" height = "40%" />
+    </div>
+    
+    <div>
+    	<h3 id="scrittaPer"><i class="fa fa-angle-right"><a id="ancora" href="<?= $this->url(array(
+                          'controller' => 'user',
+                          'action'     => 'index',), 
+                          'default',true );?>"> 
+    		Verifica se è possibile tornare all'interno dell'immobile</a></i></h3>
+    </div>  
+</div>
+ 
+
+
+<?php endif;?>
