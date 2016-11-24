@@ -14,66 +14,40 @@
                                                     'controller' => 'user',
                                                     'action'     => 'index', ), 
                                                     'default',true );?>"
-                                             ><i class="fa fa-dashboard fa-3x"></i> Home</a>
+                                             ><i class="fa fa-desktop fa-3x"></i> Home</a>
                     </li>
-                     <li>
+                    <!--
+                    <li>
                         <a  href="<?= $this->url(array(
                                                     'controller' => 'user',
                                                     'action'     => 'consumi', ), 
                                                     'default',true );?>"
-                                             ><i class="fa fa-desktop fa-3x"></i> Consumi</a>
+                                             ><i class="fa fa-dashboard fa-3x"></i> Consumi</a>
                     </li>
+                    -->
                     <li>
                     	<a href="#"><i class="fa fa-home fa-3x"></i> Gestione casa<span class="fa arrow"></span></a>
                     	<ul class="nav nav-second-level collapse" style="height: auto;">
                             <li>
                                 <a href="<?= $this->url(array(
                                                     'controller' => 'user',
-                                                    'action'     => 'gestioneprese', ), 
-                                                    'default',true );?>"
-                                             > Gestione prese</a>
-                            </li>
-                            <li>
-                                <a href="<?= $this->url(array(
-                                                    'controller' => 'user',
-                                                    'action'     => 'assegnalp', ), 
-                                                    'default',true );?>"
-                                             > Assegna lista priorità</a>
-                            </li>
-                            <li>
-                                <a href="<?= $this->url(array(
-                                                    'controller' => 'user',
-                                                    'action'     => 'pianificalp', ), 
-                                                    'default',true );?>"
-                                             > Pianifica lista priorità</a>
-                            </li>
-                            <li>
-                                <a href="#"> Impostazioni lista priorità<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level collapse">
-                                    <li>
-                                        <a href="<?= $this->url(array(
-                                                    'controller' => 'user',
                                                     'action'     => 'crealp', ), 
                                                     'default',true );?>"
-                                             > Crea</a>
-                                    </li>
-                                    <li>
+                                             > Crea lista priorità</a>
+                            </li>
+                            <li>
                                         <a href="<?= $this->url(array(
                                                     'controller' => 'user',
                                                     'action'     => 'modificalp', ), 
                                                     'default',true );?>"
-                                             > Modifica</a>
-                                    </li>
-                                    <li>
+                                             > Modifica lista priorità</a>
+                            </li>
+                            <li>
                                         <a href="<?= $this->url(array(
                                                     'controller' => 'user',
                                                     'action'     => 'eliminalp', ), 
                                                     'default',true );?>"
-                                             > Elimina</a>
-                                    </li>
-
-                                </ul>
-                               
+                                             > Elimina lista priorità</a>
                             </li>
                         </ul>
                     </li>

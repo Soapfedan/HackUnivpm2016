@@ -19,23 +19,12 @@ class UserController extends Zend_Controller_Action
         $this->_authService = new Application_Service_Auth();
         $this->_utente=new Application_Model_User();
         $this->view->mcForm=$this->getModCredenzialiForm();
-        $this->view->mpForm=$this->getModProfiloForm();
-        $this->view->epForm=$this->getEliminaProfiloForm();
     }
     
     public function indexAction()
     {} 
 	
-	public function consumiAction()
-    {} 
-	
-	public function gestionepreseAction()
-    {} 
-	
-	public function assegnalpAction()
-    {} 
-	
-	public function pianificalpAction()
+	public function gestionepresaAction()
     {} 
 	
 	public function crealpAction()
