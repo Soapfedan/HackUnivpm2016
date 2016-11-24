@@ -376,4 +376,9 @@ line-height: 1.428571429;
    
 }
 
-
+/**
+ * 	Aggiunti dopo:
+ */
+ #custom {
+ 	background-color: rgb(100,100,100);
+ }
