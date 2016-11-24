@@ -19,7 +19,7 @@ class Application_Service_Auth
         if (!$result->isValid()) {
             return false;
         }
-        $user = $this->_userModel->getUserByUName($credentials['username']);
+        $user = $this->_userModel->getUserbyUsername($credentials['username']);
         $auth->getStorage()->write($user);
         return true;
     }

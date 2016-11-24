@@ -208,9 +208,9 @@ class Application_Model_User extends App_Model_Abstract
         return $this->getResource('Utente')->updateUserByID($usrI,$ID);
     }
     
-    public function  getUserByUName($uname)
+    public function  getUserbyUsername($username)
     {
-        return $this->getResource('Utente')-> getUserByUName($uname);
+        return $this->getResource('Utente')-> getUserbyUsername($username);
     }
 	
 	public function  getUserOrderById()

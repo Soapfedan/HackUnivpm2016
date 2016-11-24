@@ -21,10 +21,9 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
         $this->insert($usrInfo);
     }
    
-    public function getUserById($id)
-    
+    public function getUserbyUsername($username)
     {
-       $select = $this->select()->where($id);
+       $select = $this->select()->where('username = ?', $username);  
        return $this->fetchAll($select);
     }
 

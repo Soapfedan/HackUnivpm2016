@@ -74,13 +74,11 @@ class AccessController extends Zend_Controller_Action
             return $this->render('login');
         }
         
-		if($this->_authService->getIdentity()->livello == 'user')
-		{
+		
 			//Elimino la posizione dell'utente
 	    	$un = $this->_authService->getIdentity()->username;
-			$this->_userModel->setIdPosByUName(null, $un);
 		
-		}
+		
         return $this->_helper->redirector('index', $this->_authService->getIdentity()->livello);
     }
     
