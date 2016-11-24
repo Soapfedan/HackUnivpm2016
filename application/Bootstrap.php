@@ -42,6 +42,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $front = Zend_Controller_Front::getInstance();
         $front->registerPlugin(new App_Controller_Plugin_Acl());
     }
-    
+    protected function _initDbParms()
+    {
+        include_once (APPLICATION_PATH . '/../../include/connect.php');
+        $db = new Zend_Db_Adapter_Pdo_Mysql(array(
+                'host'     => $HOST,
+                'username' => $USER,
+                'password' => $PASSWORD,
+                'dbname'   => $DB
+                ));  
+        Zend_Db_Table_Abstract::setDefaultAdapter($db);
+    }
 }
 
