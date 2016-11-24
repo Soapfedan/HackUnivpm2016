@@ -10,9 +10,9 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
     {
     }
 	
-	public function getUserByUName($name)
+	public function getPlug($id)
     {
-        $select = $this->select()->where('username = ?', $name); 
+        $select = $this->select()->where('plug_id = ?', $id); 
         return $this->fetchRow($select);
     }
     
@@ -21,9 +21,10 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
         $this->insert($usrInfo);
     }
    
-    public function getUserOrderById()
+    public function getUserById($id)
+    
     {
-       $select = $this->select()->order('idUtente');
+       $select = $this->select()->where($id);
        return $this->fetchAll($select);
     }
 

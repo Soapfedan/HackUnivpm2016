@@ -9,7 +9,7 @@ class Application_Model_User extends App_Model_Abstract
     }
 	
 	//AVVISI
-	public function getAvvisi()
+	public function getPlugs()
     {
          return $this->getResource('Avvisi')->getAvvisi();
     }
