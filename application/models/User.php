@@ -69,4 +69,9 @@ class Application_Model_User extends App_Model_Abstract
     {
          return $this->getResource('UTENTE')->getUserbyUsername($username);
     }
+    public function updatePassword($form)
+    {
+         return $this->getResource('UTENTE')->updatePassword($form);
+    }
+
 }
