@@ -1,10 +1,10 @@
 <?php
 
-class Application_Resource_PlugSchema extends Zend_Db_Table_Abstract
+class Application_Resource_PlugTemp extends Zend_Db_Table_Abstract
 {
     protected $_name    = 'PLUGTEMP';
     protected $_primary = array('id_schema','id_schema');
-    protected $_rowClass = 'Application_Resource_PlugSchema_Item';
+    protected $_rowClass = 'Application_Resource_PlugTemp_Item';
 
     public function init()
     {
@@ -34,14 +34,14 @@ class Application_Resource_PlugSchema extends Zend_Db_Table_Abstract
    }
    
    
-     public function updatePr($pr,$idtemp,$idplug)
+     public function updateTemp($pr,$idtemp,$idplug)
     {
          $where[] = $this->getAdapter()->quoteInto('id_plug = ?', $idtemp);   
          $where[] = $this->getAdapter()->quoteInto('id_schema = ?', $idplug);
         $this->update($pr,$where);
     }
     
-    public function deletePr($id)
+    public function deleteTemp($id)
     {
        $where = $this->getAdapter()->quoteInto('id_schema = ?', $id);   
         $this->delete($where);

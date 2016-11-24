@@ -96,11 +96,11 @@ class Application_Model_User extends App_Model_Abstract
     {
          return $this->getResource('PLUGTEMP')->getMaxId();
     }
-    public function updatePr($pr,$idtemp,$idplug)
+    public function updateTemp($pr,$idtemp,$idplug)
     {
          return $this->getResource('PLUGTEMP')->updatePr($pr,$idtemp,$idplug);
     }
-    public function deletePr($id)
+    public function deleteTemp($id)
     {
          return $this->getResource('PLUGTEMP')->deletePr($id);
     }
