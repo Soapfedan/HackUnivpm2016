@@ -46,7 +46,7 @@ class Application_Model_User extends App_Model_Abstract
     {
          return $this->getResource('TEMP_PRIORITY')->updatePr($pr,$id);
     }
-     public function insertPriority($newP)
+     public function deletePr($id)
     {
          return $this->getResource('TEMP_PRIORITY')->deletePr($id);
     }
