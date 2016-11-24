@@ -19,31 +19,8 @@ class UserController extends Zend_Controller_Action
         $this->_authService = new Application_Service_Auth();
         $this->_utente=new Application_Model_User();
         $this->view->mcForm=$this->getModCredenzialiForm();
-        $this->view->pForm=$this->getPosizioneForm();
         $this->view->mpForm=$this->getModProfiloForm();
         $this->view->epForm=$this->getEliminaProfiloForm();
-		$this->view->seForm=$this->getSegnalazioneForm();
-        
-		$un = $this->_authService->getIdentity()->username;
-		$idPos = $this->_utente->getUserByUName($un);
-		$this->view->idPos = $idPos['idPosizione'];
-		if(($idPos['idPosizione']) != null){
-			$datiPosizione = $this->_utente->getDataByIdPosizione($idPos['idPosizione']);
-			$this->view->data = $datiPosizione;
-			$imm = $this->_utente->getMappaEvaquazioneByEdifPianoZona($datiPosizione['edificio'], $datiPosizione['piano'], $datiPosizione['zona']);
-			$base64 = base64_encode($imm['mappaEvaquazione']);
-			$this->view->planimetriaCorretta = 'data:image/png;base64,'.$base64;
-            $this->view->assign('posizione',$datiPosizione['edificio']);
-		}
-        //passaggio informazioni alle notifiche
-        
-        $avvisi=$this->_utente->getAvvisiByDate();     
-        $elavvisi=$this->_utente->getAllElAvvisi();
-        $posiz=$this->_utente->getPosizione();
-        $this->view->assign(array('dataNotifica'=>$avvisi));
-        $this->view->assign(array('tipoNotifica'=>$elavvisi));
-        $this->view->assign(array('doveNotifica'=>$posiz));
-
     }
     
     public function indexAction()
