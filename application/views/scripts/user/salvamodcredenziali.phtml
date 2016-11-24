@@ -1,0 +1,15 @@
+<div class="showback">
+                        <h4><i class="fa fa-angle-right">DATI CAMBIATI CON SUCCESSO</i></h4>
+                        
+                        <div>
+                          <h3>USERNAME:</h3><h5><?php echo $this->authInfo('username')?></h5>
+                        </div>
+                        <div>
+                          <h3>PASSWORD:</h3><h5><?php echo $this->authInfo('password')?></h5>
+                        </div>
+                        <button class="btn btn-round btn-default"><a href="<?= $this->url(array(
+                                                                                'controller' => 'user',
+                                                                                'action'     => 'index', ), 
+                                                                                'default',true );?>">
+                                                    TORNA ALLA HOME</a></button>
+</div>

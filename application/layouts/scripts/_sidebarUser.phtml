@@ -1,0 +1,55 @@
+ <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+                  <?php
+                  $base64 = base64_encode($this->authInfo('imgprofilo'));
+                  $image = '<img src="data:image/gif;base64,' . $base64 . '" class="img-circle" width="60" />';
+                  ?>
+                  <p class="centered"><?php echo $image ?></p>
+                  <h5 class="centered"><?php echo $this->authInfo('nome') . ' ' . $this->authInfo('cognome') ?></h5>
+                 
+                  <li class="mt">
+                      <a class="active" href="<?= $this->url(array(
+                                                    'controller' => 'user',
+                                                    'action'     => 'index', ), 
+                                                    'default',true );?>">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Home</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>Profilo</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="<?= $this->url(array(
+                                                    'controller' => 'user',
+                                                    'action'     => 'profilo', ), 
+                                                    'default',true );?>">Visualizza profilo</a></li>
+                          <li><a  href="<?= $this->url(array(
+                                                    'controller' => 'user',
+                                                    'action'     => 'modprofilo', ), 
+                                                    'default',true );?>">Modifica profilo</a></li>
+                          <li><a  href="<?= $this->url(array(
+                                                    'controller' => 'user',
+                                                    'action'     => 'modcredenziali', ), 
+                                                    'default',true );?>">Modifica credenziali</a></li>
+                          <li><a  href="<?= $this->url(array(
+                                                    'controller' => 'user',
+                                                    'action'     => 'eliminaprofilo', ), 
+                                                    'default',true );?>">Elimina profilo</a></li>
+                      </ul>
+                  </li>
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+      

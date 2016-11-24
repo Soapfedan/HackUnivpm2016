@@ -1,0 +1,29 @@
+<div class="col-lg-3 ds">
+                      <!--COMPLETED ACTIONS DONUTS CHART-->
+                        <h3>NOTIFICHE</h3>
+                            <?php if(!$this->posizione) :?>
+                            <?php echo '<p><h4>Seleziona una posizione. </p></h4>'?>   
+                            <?php endif ?>
+                            <?php if($this->posizione) :?>
+                            <?php foreach ($this->dataNotifica as $data) :?>
+                            <?php foreach ($this->doveNotifica as $dove) :?>   
+                            <?php if($data->idPosizione==$dove->idPosizione) :?>
+                            <?php foreach ($this->tipoNotifica as $tipo) :?>
+                            <?php if($data->idElencoAvviso==$tipo->idElencoAvviso) :?>
+                            <?php if($dove->edificio==$this->posizione) :?>
+                            <div class="desc">
+                            <div class="thumb">
+                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                            </div>
+                            <div class="details">   
+                            <?php echo '<p><muted> '. $data->data .' </muted><br/>'. $tipo->tipoAvviso .' </muted><br/>'. $dove->edificio .','. $dove->piano .','. $dove->aula .'<br/></p>' ?>
+                            </div>
+                            </div>
+                            <?php endif ?>
+                            <?php endif ?>
+                            <?php endforeach ?>
+                            <?php endif ?>
+                            <?php endforeach ?>
+                            <?php endforeach ?>
+                            <?php endif ?>
+</div>

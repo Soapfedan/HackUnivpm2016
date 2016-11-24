@@ -1,0 +1,24 @@
+<div class="css-reg-log">
+    <h2 class="form-login-reg-heading">login</h2>
+    <div class="login-wrap">
+    <?=$this->loginForm; ?>
+    <hr>
+        <div class="registration-login">
+            Non hai ancora un account?<br/>
+                <a class="login" href="
+                  <?= $this->url(array(
+                     'controller'=>'access',   
+                     'action'=>'registrazione',), 
+                     'default',true);?>">
+                     Crea un nuovo account
+                </a><br/>
+                            oppure<br/>
+                <a class="login" href="
+                  <?= $this->url(array(
+                     'controller'=>'public',   
+                     'action'=>'index',), 
+                     'default',true);?>">
+                     torna alla home
+                </a>
+    </div>  
+</div>

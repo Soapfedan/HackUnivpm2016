@@ -1,0 +1,53 @@
+<aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+                  <h5 class="centered">Accedi o registrati per utilizzare i servizi</h5>
+                  
+                  <li class="sub-menu">
+                      <a class="sub-menu" href="<?= $this->url(array(
+                                                    'controller' => 'public',
+                                                    'action'     => 'index', ), 
+                                                    'default',true );?>">
+                          <i class="fa fa-desktop"></i>
+                          <span>HOME</span>
+                      </a>
+                  </li>
+                  
+                  <li class="sub-menu">
+                      <a class="sub-menu" href="<?= $this->url(array(
+                                                    'controller' => 'access',
+                                                    'action'     => 'registrazione', ), 
+                                                    'default',true );?>">
+                          <i class="fa fa-user"></i>
+                          <span>REGISTRATI</span>
+                      </a>
+                  </li class="sub-menu">
+                 
+                   <li >
+                       <a href="javascript:;" >
+                          <i class="fa fa-question"></i>  
+                          <span>INFORMAZIONI</span>  
+                       </a>
+                      	  <ul class="sub">
+                         	 <li><a  class="sub-menu" href="<?= $this->url(array(
+                                                    'controller' => 'public',
+                                                    'action'     => 'viewstatic', 
+                                                    'staticPage' => 'where'),
+                                                    'default',true );?>">Dove siamo</a></li>
+                          	<li><a  class="sub-menu" href="<?= $this->url(array(
+                                                    'controller' => 'public',
+                                                    'action'     => 'viewstatic',
+                                                    'staticPage' => 'who'), 
+                                                    'default',true );?>">Chi siamo</a></li>
+                         	<li><a  class="sub-menu" href="<?= $this->url(array(
+                                                    'controller' => 'public',
+                                                    'action'     => 'faq',), 
+                                                    'default',true );?>">FAQ</a></li>
+                       </ul> 
+                   </li>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+      
