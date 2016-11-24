@@ -9,9 +9,10 @@ class AccessController extends Zend_Controller_Action
     
     public function init()
     {
-        $this->_helper->layout->setLayout('login');
+        $this->_helper->layout->setLayout('main');
         $this->_userModel = new Application_Model_User();
         $this->_authService = new Application_Service_Auth();
+        $this->_form = $this->getLoginForm();
         $this->view->loginForm = $this->getLoginForm();
         $this->view->registerForm=$this->getRegForm();
     }
@@ -63,12 +64,10 @@ class AccessController extends Zend_Controller_Action
         }
         
         $form = $this->_form;
-        
-        if (!$form->isValid($request->getPost())) {
+       if (!$form->isValid($request->getPost())) {
             $form->setDescription('Attenzione: alcuni dati inseriti sono errati.');
             return $this->render('login');
         }
-        
         if (false === $this->_authService->authenticate($form->getValues())) {
             $form->setDescription('Autenticazione fallita. Riprova');
             return $this->render('login');
@@ -79,7 +78,7 @@ class AccessController extends Zend_Controller_Action
 	    	$un = $this->_authService->getIdentity()->username;
 		
 		
-        return $this->_helper->redirector('index', $this->_authService->getIdentity()->livello);
+        return $this->_helper->redirector('index', 'user');
     }
     
     protected function getLoginForm()

@@ -1,6 +1,6 @@
 <?php
 
-class Application_Resource_Priority extends Zend_Db_Table_Abstract
+class Application_Resource_Templates extends Zend_Db_Table_Abstract
 {
     protected $_name    = 'priority';
     protected $_primary = array('id_template','plug_id');
@@ -10,15 +10,28 @@ class Application_Resource_Priority extends Zend_Db_Table_Abstract
     {
     }
 	
-	public function getPlug($id)
+	public function getAllTemplates()
     {
-        $select = $this->select()->where('plug_id = ?', $id); 
-        return $this->fetchRow($select);
+        $select = $this->select()
+                        ->from(array('p' => 'priority'),
+                               array('id_template', 'template_name'));
+                               
+        return $this->fetchAll($select);
     }
     
-	public function insertUser($usrInfo)
+    public function getSingleTemplate($id)
     {
-        $this->insert($usrInfo);
+        $select = $this->select()
+                        ->from(array('p' => 'priority'),
+                               array('id_template', 'template_name'))
+                               ->where('id_template = ?', $id);
+        return $this->fetchAll($select);
+    }
+    
+    
+	public function insertTemplate($newTemp)
+    {
+        $this->insert($newTemp);
     }
    
     public function getUserById($id)

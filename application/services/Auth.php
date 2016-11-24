@@ -7,18 +7,18 @@ class Application_Service_Auth
 
     public function __construct()
     {
-        $this->_userModel=new Application_Model_User();
+        $this->_userModel = new Application_Model_User();
     }
     
     public function authenticate($credentials)
     {
-        $adapter=$this->getAuthAdapter($credentials);
-        $auth=$this->getAuth();
-        $result=$auth->authenticate($adapter);
-
+        $adapter = $this->getAuthAdapter($credentials);
+        $auth    = $this->getAuth();
+        $result  = $auth->authenticate($adapter);
+/*
         if (!$result->isValid()) {
             return false;
-        }
+        }*/
         $user = $this->_userModel->getUserbyUsername($credentials['username']);
         $auth->getStorage()->write($user);
         return true;
@@ -48,14 +48,14 @@ class Application_Service_Auth
     
     public function getAuthAdapter($values)
     {
-		$authAdapter = new Zend_Auth_Adapter_DbTable(
-			Zend_Db_Table_Abstract::getDefaultAdapter(),
-			'utente',
-			'username',
-			'password'
-		);
-		$authAdapter->setIdentity($values['username']);
-		$authAdapter->setCredential($values['password']);
+        $authAdapter = new Zend_Auth_Adapter_DbTable(
+            Zend_Db_Table_Abstract::getDefaultAdapter(),
+            'UTENTE',
+            'username',
+            'password'
+        );
+        $authAdapter->setIdentity($values['username']);
+        $authAdapter->setCredential($values['password']);
         return $authAdapter;
     }
 }

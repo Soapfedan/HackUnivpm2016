@@ -2,7 +2,7 @@
 
 class Application_Resource_Utente extends Zend_Db_Table_Abstract
 {
-    protected $_name    = 'utente';
+    protected $_name    = 'UTENTE';
     protected $_primary  = 'username';
     protected $_rowClass = 'Application_Resource_Utente_Item';
 
@@ -24,7 +24,7 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
     public function getUserbyUsername($username)
     {
        $select = $this->select()->where('username = ?', $username);  
-       return $this->fetchAll($select);
+       return $this->fetchRow($select);
     }
 
     public function updateUser($usrInfo,$username)
