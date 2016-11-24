@@ -2,13 +2,11 @@
 
 class PublicController extends Zend_Controller_Action
 {
-    protected $_vistaFaq;
     protected $_authService;
     
     public function init()
     {
          $this->_helper->layout->setLayout('main');
-         $this->_vistaFaq=new Application_Model_Vistafaq();
          $this->_authService = new Application_Service_Auth();
     }
     
