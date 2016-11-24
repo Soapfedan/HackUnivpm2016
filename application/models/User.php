@@ -63,6 +63,11 @@ class Application_Model_User extends App_Model_Abstract
          return $this->getResource('PRESA')->getPlug($id);
     }
     
+    public function getAllPlugs()
+    {
+         return $this->getResource('PRESA')->getAllPlugs;
+    }
+    
     public function updatePlug($plug,$id)
     {
          return $this->getResource('PRESA')->updatePlug($plug,$id);

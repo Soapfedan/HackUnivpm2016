@@ -28,7 +28,9 @@ class UserController extends Zend_Controller_Action
     {} 
 	
 	public function crealpAction()
-    {} 
+    {
+       
+    } 
 	
 	public function modificalpAction()
     {} 

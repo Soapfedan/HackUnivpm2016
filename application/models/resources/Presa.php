@@ -15,6 +15,12 @@ class Application_Resource_Presa extends Zend_Db_Table_Abstract
         $select = $this->select()->where('plug_id = ?', $id); 
         return $this->fetchRow($select);
     }
+    
+    public function getAllPlugs()
+    {
+        $select = $this->select();
+        return $this->fetchAll($select);
+    }
   
     public function updatePlug($plug,$id)
     {
