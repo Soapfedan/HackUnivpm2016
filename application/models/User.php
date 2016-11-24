@@ -14,6 +14,11 @@ class Application_Model_User extends App_Model_Abstract
          return $this->getResource('CONSUMO')->getConsSinglePlug($id);
     }
     
+        public function getAllConsumption()
+    {
+         return $this->getResource('CONSUMO')->getAllConsumption();
+    }
+    
     //Templates
     
     public function getAllTemplates()
@@ -62,7 +67,11 @@ class Application_Model_User extends App_Model_Abstract
     {
          return $this->getResource('PRESA')->updatePlug($plug,$id);
     }
-    
+    public function   setStatus($id)
+    {
+         return $this->getResource('PRESA')->setStatus($id);
+    }
+  
     
     //Utente
         public function getUserbyUsername($username)
@@ -73,5 +82,30 @@ class Application_Model_User extends App_Model_Abstract
     {
          return $this->getResource('UTENTE')->updatePassword($form);
     }
+    
+    //PlugSchema
+    public function getSingleSchema($id)
+    {
+         return $this->getResource('PLUGTEMP')->getSingleSchema($id);
+    }
+    public function insertSchema($newP)
+    {
+         return $this->getResource('PLUGTEMP')->insertSchema($newP);
+    }
+    public function getMaxId()
+    {
+         return $this->getResource('PLUGTEMP')->getMaxId();
+    }
+    public function updatePr($pr,$idtemp,$idplug)
+    {
+         return $this->getResource('PLUGTEMP')->updatePr($pr,$idtemp,$idplug);
+    }
+    public function deletePr($id)
+    {
+         return $this->getResource('PLUGTEMP')->deletePr($id);
+    }
+    
+    
+    
 
 }

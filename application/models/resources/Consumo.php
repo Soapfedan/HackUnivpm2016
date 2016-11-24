@@ -15,6 +15,14 @@ class Application_Resource_Consumo extends Zend_Db_Table_Abstract
         $select = $this->select()->where('plug_id = ?', $id); 
         return $this->fetchAll($select);
     }
-    
 	
+     public function getAllConsumption(){
+          $sum = $this -> select()
+                       -> from('CONSUMO', array("id" => "SUM(consumption)"));
+            
+        $result = $this->fetchRow($sum);
+        
+       
+        return $result;
+     }
 }

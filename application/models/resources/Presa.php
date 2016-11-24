@@ -22,5 +22,11 @@ class Application_Resource_Presa extends Zend_Db_Table_Abstract
         
         $this->update($plug,$where);
     }
+    
+    public function setStatus($id){
+        $where = $this->getAdapter()->quoteInto('id_plug = ?',$id);
+        $this->update($form, $where);
+    }
+    
   
 }
