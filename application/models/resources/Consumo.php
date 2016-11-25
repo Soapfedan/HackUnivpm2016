@@ -31,4 +31,9 @@ class Application_Resource_Consumo extends Zend_Db_Table_Abstract
         $select = $this->select()->where('plug_id = ?', $id)->order('timestamp DESC'); 
         return $this->fetchRow($select);
     }
+    
+    public function getPlugAllCons($id){
+        $select = $this->select()->where('plug_id = ?', $id)->order('timestamp DESC'); 
+        return $this->fetchAll($select);
+    }
 }

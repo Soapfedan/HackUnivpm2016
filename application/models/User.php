@@ -18,6 +18,9 @@ class Application_Model_User extends App_Model_Abstract
     {
          return $this->getResource('Consumo')->getAllConsumption();
     }
+    public function getPlugAllCons($id){
+        return $this->getResource('Consumo')->getPlugAllCons($id);
+    }
 	
 	public function getSinglePlugCons($id)
     {

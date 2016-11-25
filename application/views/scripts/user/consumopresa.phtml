@@ -1,0 +1,47 @@
+<div id="page-wrapper">
+    <?php
+        // Creo il paginator
+        $paginator = Zend_Paginator::factory($this->vals);
+        // Setto il numero di elementi per pagina (in questo caso 3)
+        $paginator->setItemCountPerPage(10);
+        // Controlla se vi è una GET se true prende la variabile page e la passa al paginator
+        if($_GET){
+        $page = $_GET['page'];
+        $paginator->setCurrentPageNumber($page);
+        }
+     ?>
+<div class="col-md-12">
+    
+<table class="table">
+    <thead>
+        <tr>
+           <th  width="20%">Id Presa</th>
+           <th  width="20%">Data/Ora</th>
+           <th  width="20%">Consumo(W)</th>
+        </tr>
+    </thead>	
+    
+	<?php 
+	   foreach($paginator as $row){
+	       if($row['consumption'] == 0)
+            continue;
+           
+	       echo "<tr>";
+            echo "<td>".$row['plug_id']."</td>"; 
+            echo "<td>".$row['timestamp']."</td>"; 
+            echo "<td>".$row['consumption']."</td>"; 
+           echo "</tr>";
+	   }
+	?>
+	
+</table>
+<?php echo $this->paginationControl($paginator,
+                                    'Sliding',
+                                    'user/_paginatorLA.phtml',
+                                    array('idPlug' => $idplug)); ?>	  
+</div>	
+<hr>
+<div>
+
+</div>	
+</div>

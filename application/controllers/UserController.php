@@ -447,6 +447,13 @@ class UserController extends Zend_Controller_Action
         }
     }
     
+    public function consumopresaAction(){
+        $ipl = $this->getParam('idPlug');
+        $this->view->vals = $this->_utente->getPlugAllCons($ipl);
+        $this->view->assign('idplug', $ipl);
+    }
+    
+    
 	protected function getCreaNomeForm()
     {
         $urlHelper = $this->_helper->getHelper('url');

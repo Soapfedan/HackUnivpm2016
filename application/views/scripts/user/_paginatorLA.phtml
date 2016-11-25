@@ -1,0 +1,35 @@
+<?php if ($this->pageCount > 1): ?>
+<div id="pagination">
+<?php echo $this->firstItemNumber; ?> - <?= $this->lastItemNumber; ?> di <?= $this->totalItemCount; ?> ---
+
+<!-- La pagina viene passita tramite metodo  GET -->
+<!-- Link alla prima pagina -->
+<?php if (isset($this->previous)): ?>
+  <a href="<?= $this->url(array('controller' => 'user', 'action' => 'consumopresa', )); ?>/?idPlug=<?= $_GET['idPlug']?>&page=<?php echo $this->first ?>">Inizio</a> |
+<?php else: ?>
+  Inizio |
+<?php endif; ?>
+
+<!-- Link alla pagina precedente -->
+<?php if (isset($this->previous)): ?>
+  <a href="<?= $this->url(array('controller' => 'user', 'action' => 'consumopresa', )); ?>/?idPlug=<?= $_GET['idPlug']?>&page=<?php echo $this->previous ?>">&lt; Precedente</a> |
+<?php else: ?>
+  &lt; Precedente |
+<?php endif; ?>
+
+<!-- Link alla pagina successiva -->
+<?php if (isset($this->next)): ?>
+  <a href="<?= $this->url(array('controller' => 'user', 'action' => 'consumopresa', )); ?>/?idPlug=<?= $_GET['idPlug']?>&page=<?php echo $this->next ?>   ">Successivo &gt;</a> |
+<?php else: ?>
+  Successivo &gt; |
+<?php endif; ?>
+
+<!-- Link all'ultima pagina -->
+<?php if (isset($this->next)): ?>
+  <a href="<?= $this->url(array('controller' => 'user', 'action' => 'consumopresa',)); ?>/?idPlug=<?= $_GET['idPlug']?>&page=<?php echo $this->last ?>">Fine</a>
+<?php else: ?>
+  Fine
+<?php endif; ?>
+
+</div>
+<?php endif; ?>
