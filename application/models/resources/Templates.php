@@ -22,8 +22,15 @@ class Application_Resource_Templates extends Zend_Db_Table_Abstract
     public function getSingleTemplate($id)
     {
         $select = $this->select()
+                               ->from(array('p' => 'TEMPLATES'),
+                               'template_name')
                                ->where('id_template = ?', $id);
         return $this->fetchRow($select);
     }
 	
+	public function getSingleTemplateAll($id)
+    {
+        $select = $this->select()->where('id_template = ?', $id);
+        return $this->fetchRow($select);
+    }
 }

@@ -2,38 +2,83 @@
 
 class Application_Form_User_Crealp extends App_Form_Abstract
 {
-    protected $_userModel;
+
+     protected $_utente;
     
     public function init()
     {
-        $this->_userModel = new Application_Model_User();              
+        $this->_utente=new Application_Model_User();
+    
         $this->setMethod('post');
         $this->setName('crealp');
         $this->setAction('');
-        
+        /*
+        $this->addElement('text', 'id_template', array(
+            //'required'   => true,
+            'label'      => 'Id dello schema',
+            'decorators' => $this->elementDecorators,
+            'class'      => 'form-control mt3',
+            'value' =>$idt,
+           // 'attribs'    => array('disabled' => 'disabled')
+            
+            ));
                 
         $this->addElement('text', 'schema_name', array(
             'filters'    => array('StringTrim'),
-            'validators' => array(
-                array('StringLength', true, array(3, 25))
-            ),
-            'required'   => true,
+            
+            //'required'   => true,
             'label'      => 'Nome dello schema',
             'decorators' => $this->elementDecorators,
-            'class'      => 'form-control mt3'
+            'class'      => 'form-control mt3',
+            'value' =>$sn,
+          //'attribs'    => array('disabled' => 'disabled')
+            
             ));
             
-        $values = $this->_userModel->getFloors($imm);
-            $valuearr = $values->toArray();
-                // Crea un radioButton
-            $radio = new Zend_Form_Element_Radio('floors');
-                // Cicla sulla lista di piani e aggiunge l'opzione relativa al radioButton
-            foreach($valuearr as $floor){
-                $radio->addMultiOption($floor['Id_piano'], 'Piano '.$floor['Id_piano']);
+                   
+              
+            $this->addElement('text', 'id_plug', array(
+            
+           // 'required'   => true,
+            'label'      => 'Presa',
+            'decorators' => $this->elementDecorators,
+            'class'      => 'form-control mt3',
+            'value' =>$pi,
+            //'attribs'    => array('disabled' => 'disabled')
+            ));
+            
+             $this->addElement('text', 'plug_name', array(
+            
+            //'required'   => true,
+            'label'      => 'Plug_name',
+            'decorators' => $this->elementDecorators,
+            'class'      => 'form-control mt3',
+            'value' =>$pn,
+            //'attribs'    => array('disabled' => 'disabled')
+            ));
+            */
+            $pList = $this->_utente->getAllPlugs();
+            foreach ($pList as $key => $pl) {
+             
+            $id="priority".  $pl['plug_id']  ;                              
+            $e = $this->createElement('select', $id);
+            /*$e->setLabel('Priority')
+                ->setAttrib('size', 1);*/
+            $e->setDecorators($this->elementDecorators);
+            //$e->setAttribs(array('class'  => 'form-control mt3'));
+            $optionClasses = array();
+            for($a=1; $a<=10; $a++){
+                $e->addMultiOption($a,$a);
+            }
+            $e->setValue(1);
+            $this->addElement($e);
             }
             
-        $this->addElement('submit', 'aggiorna   ', array(
-            'label'    => 'Aggiorna',
+            
+            
+            
+        $this->addElement('submit', 'inserisci', array(
+            'label'    => 'Inserisci',
             'decorators' => $this->buttonDecorators,
             'class'      => 'btn-theme form-control mt20'
         ));

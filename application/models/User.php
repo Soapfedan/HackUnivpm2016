@@ -35,6 +35,10 @@ class Application_Model_User extends App_Model_Abstract
     {
          return $this->getResource('TEMPLATES')->getSingleTemplate($id);
     }
+	public function getSingleTemplateAll($id)
+    {
+         return $this->getResource('TEMPLATES')->getSingleTemplateAll($id);
+    }
     
     //TempPriority
     
@@ -77,7 +81,7 @@ class Application_Model_User extends App_Model_Abstract
     {
          return $this->getResource('PRESA')->updatePlug($plug,$id);
     }
-    public function   setStatus($id)
+    public function setStatus($id)
     {
          return $this->getResource('PRESA')->setStatus($id);
     }
@@ -101,6 +105,10 @@ class Application_Model_User extends App_Model_Abstract
     {
          return $this->getResource('PLUGTEMP')->getSingleSchema($id);
     }
+	public function getSchemaName()
+	{
+         return $this->getResource('PLUGTEMP')->getSchemaName();
+    }
     public function insertSchema($newP)
     {
          return $this->getResource('PLUGTEMP')->insertSchema($newP);
@@ -111,12 +119,16 @@ class Application_Model_User extends App_Model_Abstract
     }
     public function updateTemp($pr,$idtemp,$idplug)
     {
-         return $this->getResource('PLUGTEMP')->updatePr($pr,$idtemp,$idplug);
+         return $this->getResource('PLUGTEMP')->updateTemp($pr,$idtemp,$idplug);
     }
     public function deleteTemp($id)
     {
-         return $this->getResource('PLUGTEMP')->deletePr($id);
-    } 
+         return $this->getResource('PLUGTEMP')->deleteTemp($id);
+    }
+    public function getAllSchema()
+    {
+         return $this->getResource('PLUGTEMP')->getAllSchema();
+    }
     
     
 

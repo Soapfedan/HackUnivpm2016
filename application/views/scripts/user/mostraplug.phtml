@@ -1,0 +1,39 @@
+<div id="page-wrapper" >
+   
+        <div ><h1> <?=$this->nome;?></h1></div> <br />
+        <div>
+        <form name="name" enctype="application/x-www-form-urlencoded" method="post" action="/HackUnivpm/public/user/inseriscilp" 
+        <table>
+        <tr>
+            <th>&nbsp;Id Presa&nbsp;</th>     
+            <th>&nbsp;Nome presa&nbsp;</th>
+            <th>&nbsp;Categoria&nbsp;</th>
+            <th>&nbsp;Assegna Priorita'&nbsp;</th>
+        </tr>
+      </thead><br>
+      <?php 
+       
+            foreach ($this->plugs as $plug){
+                $categ = null;
+            foreach($this->category as $cat){
+                if($plug['id_t']==$cat['id']){
+                    $categ = $cat['name'];
+                }
+            }
+            echo "<tr>";
+            echo "<td>". $plug['ID']            ."</td>";
+            echo "<td>". $plug['nome']      ."</td>";
+            echo "<td>". $categ       ."</td>";
+            echo "<td>";
+                    $a = 'priority'.$plug['ID'];
+                    echo $this->form->$a;
+                    
+                 echo" </td>";
+         
+            echo "</tr> <br>";      
+        }
+            echo $this->form->inserisci; ?>
+        </table>
+      </form>
+    </div>
+</div>

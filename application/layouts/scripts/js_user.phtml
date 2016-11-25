@@ -1,5 +1,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
 <script>
 
-
+	function EliminaTemplate(ID)
+    {
+    	if(confirm('Sicuro di voler eliminare il template selezionato?')){
+	        new Ajax.Request(
+	        "<?=$this->url(array('controller' => 'user','action' => 'eliminatl'))?>",
+	            {
+	                method:'GET',
+	                parameters: {id_template : ID},
+	                onSuccess: function eliminaTlRsp(eliminaRsp)
+							   {
+								   	var json = JSON.parse(eliminaRsp.responseText);
+								   	if(json == true){
+								   	    var ur="<?= $this->url(array('controller' => 'user','action'=>'eliminalp'))?>";
+								   	    location.href = ur;
+								   	}else{
+								   	    alert("Errore durante l'eliminazione! Riprovare");								   	    
+								   	}				   		   	
+							   }
+	        });
+        }
+	}		
+		
 </script>

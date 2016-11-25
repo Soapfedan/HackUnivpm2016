@@ -1,0 +1,39 @@
+<div id="page-wrapper" >
+   
+        <div ><h1> <?=$this->nome;?></h1></div> <br />
+        <div>
+        <form name="editschema" enctype="application/x-www-form-urlencoded" method="post" action="/HackUnivpm/public/user/modificatemp" 
+        <table>
+        <tr>
+            <th>&nbsp;Id Presa&nbsp;</th>     
+            <th>&nbsp;Nome presa&nbsp;</th>
+            <th>&nbsp;Nome dello schema&nbsp;</th>
+            <th>&nbsp;Assegna Priorita'&nbsp;</th>
+        </tr>
+      </thead><br>
+      <?php 
+       
+            foreach ($this->template as $temp){
+                $pname = null;
+            foreach($this->plugs as $plug){
+                if($plug['plug_id']==$temp['id_plug']){
+                    $pname = $plug['mnemonic_name'];
+                }
+            }
+            echo "<tr>";
+            echo "<td>". $temp['id_plug']            ."</td>";
+            echo "<td>". $pname      ."</td>";
+            echo "<td>". $temp['schema_name']       ."</td>";
+            echo "<td>";
+                    $a = 'priority'.$temp['id_plug'];
+                    echo $this->form->$a;
+                    
+                 echo" </td>";
+         
+            echo "</tr> <br>";      
+        }
+            echo $this->form->aggiorna; ?>
+        </table>
+      </form>
+    </div>
+</div>

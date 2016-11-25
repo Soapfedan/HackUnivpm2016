@@ -1,0 +1,28 @@
+
+    <div id="page-wrapper">
+        
+        <div ><h1 id="temp"> Scegli il template da cancellare</h1></div> <br />
+       <table>
+        <tr>
+            <th>&nbsp;Id Template&nbsp;</th>     
+            <th>&nbsp;Nome Template&nbsp;</th>
+            <th>&nbsp;Cancella&nbsp;</th>
+        </tr>
+      </thead><br>
+      <?php 
+       
+            foreach ($this->schemas as $schema){
+               
+           
+            echo "<tr>";
+            echo "<td>". $schema['id_schema']            ."</td>";
+            echo "<td>". $schema['schema_name']      ."</td>";
+            echo "<td>"?>
+                   <button class="btn-danger btn-xs" onclick="EliminaTemplate(<?php echo $schema['id_schema']?>)"> <i class='fa fa-eraser' aria-hidden='true'></i></button>
+                   
+                  </td>    
+       <?php }?>
+           
+        </table>
+    
+</div>

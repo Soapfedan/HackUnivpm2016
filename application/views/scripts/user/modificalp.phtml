@@ -1,0 +1,35 @@
+
+    <div id="page-wrapper">
+        
+        <div ><h1 id="temp"> Scegli il template da modificare</h1></div> <br />
+       <table>
+        <tr>
+            <th>&nbsp;Id Template&nbsp;</th>     
+            <th>&nbsp;Nome Template&nbsp;</th>
+            <th>&nbsp;Modifica&nbsp;</th>
+        </tr>
+      </thead><br>
+      <?php 
+       
+            foreach ($this->schemas as $schema){
+               
+           
+            echo "<tr>";
+            echo "<td>". $schema['id_schema']            ."</td>";
+            echo "<td>". $schema['schema_name']      ."</td>";
+            echo "<td>
+                    <a href=".
+                        $this->url(array(
+                            'controller' => 'user',
+                            'action'     => 'editschema',
+                            'modid'  => $schema['id_schema']   ,
+                            ), 
+                            'default',true).">
+                    <i class='fa fa-magic' aria-hidden='true'></i>
+                    </a>
+                  </td>";    
+        }?>
+           
+        </table>
+    
+</div>
