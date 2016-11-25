@@ -12,3 +12,29 @@
     <script src="/HackUnivpm/public/js/dataTables/jquery.dataTables.js"></script>
     <script src="/HackUnivpm/public/js/morris/morris.js"></script>
     <script src="/HackUnivpm/public/js/morris/raphael-2.1.0.min.js"></script>
+    <script>
+    		
+	function Login()
+    {
+    	var USERNAME = document.getElementById('username').value;
+    	var pass = document.getElementById('password').value;
+	        new Ajax.Request(
+	        "<?=$this->url(array('controller' => 'access','action' => 'authenticate'))?>",
+	            {
+	                method:'POST',
+	                parameters: {username : USERNAME,
+	                			 password : pass},
+	                onSuccess: function LoginRsp(loginRsp)
+							   {
+								   	var json = JSON.parse(loginRsp.responseText);
+								   	if(json == true){
+								   	    var ur="<?= $this->url(array('controller' => 'user','action'=>'index'))?>";
+								   	    location.href = ur;
+								   	}else{
+								   	    alert("Errore durante il Login! Riprovare");								   	    
+								   	}				   		   	
+							   }
+	        });
+        
+	}
+    </script>

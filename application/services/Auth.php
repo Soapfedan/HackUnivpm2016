@@ -15,10 +15,7 @@ class Application_Service_Auth
         $adapter = $this->getAuthAdapter($credentials);
         $auth    = $this->getAuth();
         $result  = $auth->authenticate($adapter);
-/*
-        if (!$result->isValid()) {
-            return false;
-        }*/
+
         $user = $this->_userModel->getUserbyUsername($credentials['username']);
         $auth->getStorage()->write($user);
         return true;

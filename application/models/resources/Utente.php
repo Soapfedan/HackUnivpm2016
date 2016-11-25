@@ -26,4 +26,9 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
         $this->update($form, $where);
     }
 	
+	public function controllaPsw($username, $password){
+		$select = $this->select()->where('username = ?', $username)->where('password = ?', $password);  
+       	return $this->fetchRow($select);
+	}
+	
 }

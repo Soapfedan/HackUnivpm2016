@@ -25,6 +25,32 @@ class AccessController extends Zend_Controller_Action
     
     public function loginAction()
     {}
+	
+	public function authenticateAction()
+    {
+    	$this->_helper->layout()->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+		
+    	$username = $this->getRequest()->getPost('username');
+		$password = $this->getRequest()->getPost('password');
+		
+		$form = $this->_form;
+		$un = $this->_userModel->getUserbyUsername($username);
+		$esito = $this->_userModel->controllaPsw($username, $password);
+		if($esito){
+			$a = TRUE;
+			$credentials = array('username' => $username, 
+								'password' => $password);
+								
+			$this->_authService->authenticate($credentials);
+			
+		}else{
+            $a = FALSE;
+		}
+		require_once 'Zend/Json.php';
+        $a = Zend_Json::encode($a);
+		echo $a;
+    }
        
     public function registrazioneAction()
     {}
@@ -54,7 +80,7 @@ class AccessController extends Zend_Controller_Action
         }
     } 
 	
-
+	/*
     public function authenticateAction()
     {        
         $request = $this->getRequest();
@@ -63,7 +89,7 @@ class AccessController extends Zend_Controller_Action
             return $this->_helper->redirector('login');
         }
         
-        $form = $this->_form;
+       $form = $this->_form;
        if (!$form->isValid($request->getPost())) {
             $form->setDescription('Attenzione: alcuni dati inseriti sono errati.');
             return $this->render('login');
@@ -80,7 +106,7 @@ class AccessController extends Zend_Controller_Action
 		
         return $this->_helper->redirector('index', 'user');
     }
-    
+    */
     protected function getLoginForm()
     {
         $urlHelper = $this->_helper->getHelper('url');

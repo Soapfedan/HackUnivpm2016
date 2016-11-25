@@ -24,6 +24,8 @@ class Application_Model_User extends App_Model_Abstract
          return $this->getResource('CONSUMO')->getSinglePlugCons($id);
     }
 	
+	
+	
     //Templates
     
     public function getAllTemplates()
@@ -98,6 +100,14 @@ class Application_Model_User extends App_Model_Abstract
     }
     public function updateUser($form){
         return $this->getResource('UTENTE')->updateUser($form);
+    }
+	public function controllaPsw($username, $password)
+	{
+         if(count($this->getResource('UTENTE')->controllaPsw($username, $password)) == 1){
+         	return true;
+         }else{
+         	return false;
+         }
     }
     
     //PlugSchema
