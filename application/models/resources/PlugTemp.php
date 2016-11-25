@@ -13,8 +13,7 @@ class Application_Resource_PlugTemp extends Zend_Db_Table_Abstract
 	    
     public function getSingleSchema($id)
     {
-        $select = $this->select()
-                               ->where('id_schema = ?', $id);
+        $select = $this->select()->where('id_schema = ?', $id);
         return $this->fetchAll($select);
     }
     

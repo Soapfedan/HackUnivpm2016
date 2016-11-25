@@ -17,11 +17,13 @@ class Application_Resource_Utente extends Zend_Db_Table_Abstract
        return $this->fetchRow($select);
     }
     
-    public function updatePassword($form){
+    public function getUser(){
+        return $this->fetchRow();
+    }
+    
+    public function updateUser($form){
         $where = $this->getAdapter()->quoteInto('username = ?',$form['username']);
         $this->update($form, $where);
     }
-    
- 
 	
 }
